@@ -1,0 +1,9 @@
+枚举
+
+继承于Enum
+
+常用方法：
+    toString：常量名称
+    values：返回所有枚举类的数组
+    valueof：返回一个常量
+    name：常量名称

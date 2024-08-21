@@ -1,0 +1,23 @@
+包装类
+
+将简单数据类型包装成为类
+
+数据类型      包装类
+byte        Byte
+short       Short
+int         Integer
+long        Long
+double      Double
+float       Float
+char        Character
+boolean     Boolean
+
+
+赋值：
+Integer IntObj = Integer.valueOf(3);
+取值：IntObj.xxxValue()
+IntObj.intValue()
+
+装箱，拆箱  语法糖
+Integer IntObj2 = 2;
+IntObj2++;

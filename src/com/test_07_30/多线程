@@ -1,0 +1,83 @@
+1、怎么用：
+    方式1：
+        继承Thread类
+            1、继承Thread类
+            class EvenNum extends Thread {
+                @Override
+                public void run() {
+                    for (int i = 1; i <= 1000; i++) {
+                        if(i % 2 == 0) {
+                            System.out.println(i + "===========");
+                        }
+                    }
+                }
+            }
+            2、实例化类，执行start方法
+            public class test {
+                public static void main(String[] args) {
+                    EvenNum even = new EvenNum();
+                    even.start();  // 启动线程，调用Thread中的run方法
+                }
+            }
+
+    方式2：
+        实现Runnable接口
+           1、实现Runnable接口
+           class OddNum implements Runnable {
+               @Override
+               public void run() {
+                   for (int i = 1; i <= 1000; i++) {
+                       if(i % 2 != 0) {
+                           System.out.println(Thread.currentThread().getName() + "：" +  i);
+                       }
+                   }
+               }
+           }
+           2、创建多态，启动线程
+           public class test {
+               public static void main(String[] args) {
+                   OddNum odd = new OddNum();
+                   new Thread(odd).start();
+               }
+           }
+
+2、构造器
+    - public Thread(){}：分配一个新的线程对象
+    - public Thread(String name){}：分配一个指定名字的线程对象
+    - public Thread(){Runnable target}：指定创建线程的目标对象，实现它的Runnable接口中的run方法
+    - public Theead(){Runnable target, String name}：分配一个指定的线程的目标对象并命名
+3.常用方法
+    start()：启动线程，调用线程的run方法
+    run()：线程中要做的事
+    currentThread()：获取当前的线程
+    getName()：获取线程的名称
+    setName()：设置线程名称
+    sleep(long millis)：静态方法，调用时，可以延迟指定毫秒数
+    yield()：释放cpu的执行权
+    join()：a线程中调用b线程的join()方法，a线程会阻塞，等待b线程执行完毕之后，a线程结束阻塞，开始继续执行
+    isAlive()：判断当前线程是否还存活
+
+过时方法：
+    stop()：强行结束一个线程，不建议使用
+    suspend()/resume()：可能造成死锁，不建议使用
+
+
+4、线程的优先级
+    getPriority()：获取当前线程的优先级
+    getPriority()：设置线程的优先级（1-10）
+
+    Thread内部声明了3个常量：
+    - MAX_PRIORITY(10)：最高优先级
+    - MIN-PRIORITY(1)：最低优先级
+    - NORM_PRIORITY(5)：默认
+
+5、生命周期
+
+6、线程的安全问题
+使用线程同步机制
+方式1：同步代码块
+
+
+方式2：同步方法
+
+

@@ -1,0 +1,32 @@
+接口：
+    1、关键字 interface
+        interface 接口名 {  }
+    2、接口可多继承
+        interface 接口名 extends 接口1,接口2 {  }
+    3、类与接口的关系是实现关系，可多实现，关键字 implements
+        类必须实现接口中所有的抽象方法
+        class 类名 implements 接口1,接口2 {  }
+    4、不能实例化，但是可以通过重写方法去实现
+        new USB() {
+            @Override
+                public void start() {
+                    System.out.println("USB开始");
+                }
+
+                @Override
+                public void stop() {
+                    System.out.println("USB结束");
+            }
+        }
+    5、静态方法
+        接口的静态方法只能接口调用，实现它的类无法调用
+        public interface Comp {
+            public static void method1() {  }
+        }
+    6、默认方法
+        1）接口中声明的默认方法可以被实现类继承，实现类也可以重写此方法
+        public interface void method2() {}
+        2）类实现的两个接口中不能有相同的静态方法，编译不通过
+        3）子类继承父类，再实现接口时，如果父类中的方法和接口中的方法相同时，类优先
+        4）在类中调用接口中的方法：
+            接口.super.方法名()
